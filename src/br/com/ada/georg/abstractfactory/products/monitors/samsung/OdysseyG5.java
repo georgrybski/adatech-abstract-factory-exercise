@@ -4,7 +4,7 @@ import br.com.ada.georg.abstractfactory.products.monitors.Monitor;
 
 public class OdysseyG5 implements Monitor {
     @Override
-    public void showDetails() {
-        System.out.println("Odyssey G5");
+    public String getDetails() {
+        return "Odyssey G5";
     }
 }

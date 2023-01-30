@@ -4,7 +4,7 @@ import br.com.ada.georg.abstractfactory.products.smartphones.SmartPhone;
 
 public class IPhoneX implements SmartPhone {
     @Override
-    public void showDetails() {
-        System.out.println("iPhone X");
+    public String getDetails() {
+        return "iPhone X";
     }
 }

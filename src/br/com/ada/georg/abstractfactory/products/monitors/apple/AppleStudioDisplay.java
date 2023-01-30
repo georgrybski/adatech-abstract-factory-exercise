@@ -4,7 +4,7 @@ import br.com.ada.georg.abstractfactory.products.monitors.Monitor;
 
 public class AppleStudioDisplay implements Monitor {
     @Override
-    public void showDetails() {
-        System.out.println("Apple Studio Display");
+    public String getDetails() {
+        return "Apple Studio Display";
     }
 }
