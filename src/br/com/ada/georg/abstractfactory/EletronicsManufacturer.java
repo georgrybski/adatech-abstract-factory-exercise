@@ -68,15 +68,15 @@ public abstract class EletronicsManufacturer<T extends Business> implements Busi
         return assembleMonitorUsingEnum(monitorTypesHashMap.get(model));
     }
 
-    public <E extends SmartPhoneEnum> SmartPhone assembleSmartPhoneUsingEnum(E smartPhoneTypeEnum) {
+    public <S extends SmartPhoneEnum> SmartPhone assembleSmartPhoneUsingEnum(S smartPhoneTypeEnum) {
             return smartPhoneTypeEnum.getFactory().createPhone();
     }
 
-    public  <E extends LaptopEnum> Laptop assembleLaptopUsingEnum(E laptopTypeEnum) {
+    public  <U extends LaptopEnum> Laptop assembleLaptopUsingEnum(U laptopTypeEnum) {
         return laptopTypeEnum.getFactory().createLaptop();
     }
 
-    public  <E extends MonitorEnum> Monitor assembleMonitorUsingEnum(E monitorTypeEnum) {
+    public  <V extends MonitorEnum> Monitor assembleMonitorUsingEnum(V monitorTypeEnum) {
         return monitorTypeEnum.getFactory().createMonitor();
     }
 }
