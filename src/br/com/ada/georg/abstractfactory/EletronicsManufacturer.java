@@ -27,7 +27,7 @@ public abstract class EletronicsManufacturer<T extends Business> implements Busi
     public void listAllSmartPhones() {
         smarphoneTypesHashMap.values()
                 .stream()
-                .map(this::assembleSmartPhone)
+                .map(this::assembleSmartPhoneUsingEnum)
                 .map(SmartPhone::getDetails)
                 .forEach(System.out::println);
     }
@@ -35,7 +35,7 @@ public abstract class EletronicsManufacturer<T extends Business> implements Busi
     public void listAllLaptops() {
         laptopTypesHashMap.values()
                 .stream()
-                .map(this::assembleLaptop)
+                .map(this::assembleLaptopUsingEnum)
                 .map(Laptop::getDetails)
                 .forEach(System.out::println);
     }
@@ -43,7 +43,7 @@ public abstract class EletronicsManufacturer<T extends Business> implements Busi
     public void listAllMonitors() {
         monitorTypesHashMap.values()
                 .stream()
-                .map(this::assembleMonitor)
+                .map(this::assembleMonitorUsingEnum)
                 .map(Monitor::getDetails)
                 .forEach(System.out::println);
     }
@@ -57,26 +57,26 @@ public abstract class EletronicsManufacturer<T extends Business> implements Busi
     }
 
     public SmartPhone assembleSmartPhone(String model){
-        return assembleSmartPhone(smarphoneTypesHashMap.get(model));
+        return assembleSmartPhoneUsingEnum(smarphoneTypesHashMap.get(model));
     }
 
     public Laptop assembleLaptop(String model){
-        return assembleLaptop(laptopTypesHashMap.get(model));
+        return assembleLaptopUsingEnum(laptopTypesHashMap.get(model));
     }
 
     public Monitor assembleMonitor(String model){
-        return assembleMonitor(monitorTypesHashMap.get(model));
+        return assembleMonitorUsingEnum(monitorTypesHashMap.get(model));
     }
 
-    public   <S extends SmartPhoneEnum> SmartPhone assembleSmartPhone(S smartPhoneTypeEnum) {
+    public <E extends SmartPhoneEnum> SmartPhone assembleSmartPhoneUsingEnum(E smartPhoneTypeEnum) {
             return smartPhoneTypeEnum.getFactory().createPhone();
     }
 
-    public  <U extends LaptopEnum> Laptop assembleLaptop(U laptopTypeEnum) {
+    public  <E extends LaptopEnum> Laptop assembleLaptopUsingEnum(E laptopTypeEnum) {
         return laptopTypeEnum.getFactory().createLaptop();
     }
 
-    public  <V extends MonitorEnum> Monitor assembleMonitor(V monitorTypeEnum) {
+    public  <E extends MonitorEnum> Monitor assembleMonitorUsingEnum(E monitorTypeEnum) {
         return monitorTypeEnum.getFactory().createMonitor();
     }
 }
